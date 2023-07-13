@@ -63,3 +63,6 @@ keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(v
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+
+-- dev_util
+keymap("n", "<leader>dc", ":TermExec cmd=\"bazel run //:gen_compile_commands -- --dir=%:p:h && exit\" dir=\"~/dev_util\"<CR>")
