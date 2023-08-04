@@ -56,6 +56,7 @@ keymap("n", "<C-p>", require('user/telescope').project_files, opts)
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("v", "<leader>fs", "y<ESC>:Telescope live_grep default_text=<c-r>0<CR>", opts)
 
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
@@ -65,4 +66,4 @@ keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(v
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 
 -- dev_util
-keymap("n", "<leader>dc", ":TermExec cmd=\"bazel run //:gen_compile_commands -- --dir=%:p:h && exit\" dir=\"~/dev_util\"<CR>")
+keymap("n", "<leader>dc", ":TermExec cmd=\"python3 -B ~/dev_util/gen_compile_commands.py && exit\" <CR>")
