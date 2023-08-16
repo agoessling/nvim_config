@@ -1,7 +1,7 @@
 local M = {}
 
 M.servers = {
-  "clangd",
+  "clangd@15.0.6",
   "lua_ls",
   "cssls",
   "html",
