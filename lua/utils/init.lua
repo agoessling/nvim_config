@@ -5,6 +5,7 @@ M.servers = {
   "lua_ls",
   "cssls",
   "html",
+  "texlab",
   "tsserver",
   "pyright",
   "bashls",
