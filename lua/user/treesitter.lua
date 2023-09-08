@@ -23,6 +23,7 @@ function M.config()
       "c",
       "vim",
       "json",
+      "latex",
     },
     sync_install = false,
     highlight = {
