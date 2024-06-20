@@ -24,6 +24,7 @@ function M.config()
       "vim",
       "json",
       "latex",
+      "rust",
     },
     sync_install = false,
     highlight = {
