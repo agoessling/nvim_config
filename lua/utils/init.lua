@@ -12,6 +12,7 @@ M.servers = {
   "jsonls",
   "yamlls",
   "rust_analyzer",
+  "ruff",
 }
 
 return M
