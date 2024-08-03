@@ -23,7 +23,6 @@ function M.config()
       "c",
       "vim",
       "json",
-      "latex",
       "rust",
     },
     sync_install = false,
