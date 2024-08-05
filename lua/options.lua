@@ -25,7 +25,6 @@ vim.o.softtabstop = 2
 vim.o.textwidth = 100
 vim.o.scrolloff = 3
 vim.o.smartindent = false
-vim.g.python_recommended_style = false
 
 -- Mouse
 vim.o.mouse = nil
