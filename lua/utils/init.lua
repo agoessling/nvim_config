@@ -6,7 +6,7 @@ M.servers = {
   "cssls",
   "html",
   "texlab",
-  "tsserver",
+  "ts_ls",
   "pyright",
   "bashls",
   "jsonls",

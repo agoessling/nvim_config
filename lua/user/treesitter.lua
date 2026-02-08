@@ -10,9 +10,9 @@ local M = {
 }
 
 function M.config()
-  local configs = require("nvim-treesitter.configs")
+  local treesitter = require("nvim-treesitter")
 
-  configs.setup({
+  treesitter.setup({
     ensure_installed = {
       "lua",
       "markdown",
