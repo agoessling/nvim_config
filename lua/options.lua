@@ -4,13 +4,14 @@ vim.o.splitright = true
 
 -- Appearance
 vim.o.termguicolors = true
-vim.o.showbreak = '↪'
+vim.o.showbreak = "↪"
 vim.o.showmode = false
 vim.o.wrap = true
 vim.o.ruler = false
 vim.o.number = true
 vim.o.cursorline = true
-vim.o.colorcolumn = '+1'
+vim.o.colorcolumn = "+1"
+vim.g.loaded_python3_provider = 0
 
 -- Wildcard and search
 vim.o.hlsearch = true

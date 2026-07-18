@@ -13,8 +13,8 @@ local M = {
 function M.config()
   require("mason").setup()
   require("mason-lspconfig").setup {
-    ensure_installed = require("utils").servers,
-    automatic_installation = true,
+    ensure_installed = { "basedpyright", "ruff" },
+    automatic_enable = false,
   }
 end
 

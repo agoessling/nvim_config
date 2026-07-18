@@ -23,3 +23,19 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
     vim.cmd "tabdo wincmd ="
   end,
 })
+
+local python_format_on_save = vim.api.nvim_create_augroup("PythonFormatOnSave", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = python_format_on_save,
+  pattern = "*.py",
+  callback = function(args)
+    vim.lsp.buf.format({
+      bufnr = args.buf,
+      timeout_ms = 3000,
+      filter = function(client)
+        return client.name == "ruff"
+      end,
+    })
+  end,
+})

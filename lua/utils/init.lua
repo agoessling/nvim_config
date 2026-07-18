@@ -7,12 +7,12 @@ M.servers = {
   "html",
   "texlab",
   "ts_ls",
-  "pyright",
+  "basedpyright",
+  "ruff",
   "bashls",
   "jsonls",
   "yamlls",
   "rust_analyzer",
-  "ruff",
 }
 
 return M

@@ -1,9 +1,13 @@
 local M = {
-  cmd = {
-    "clangd",
-    "--query-driver=**/aarch64-linux-gnu*",
-    "--query-driver=**/arm-none-eabi*"
-  }
+	cmd = {
+		"clangd",
+		"--background-index",
+		"--clang-tidy",
+		"--completion-style=detailed",
+		"--header-insertion=iwyu",
+		"--query-driver=**/aarch64-linux-gnu*",
+		"--query-driver=**/arm-none-eabi*",
+	},
 }
 
 return M
