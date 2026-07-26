@@ -18,10 +18,10 @@ function M.set(bufnr)
   map("n", "<leader>lI", "<cmd>Mason<cr>", "Open Mason")
   map("n", "<leader>la", vim.lsp.buf.code_action, "Code action")
   map("n", "<leader>lj", function()
-    vim.diagnostic.goto_next { buffer = 0 }
+    vim.diagnostic.jump { count = 1 }
   end, "Next diagnostic")
   map("n", "<leader>lk", function()
-    vim.diagnostic.goto_prev { buffer = 0 }
+    vim.diagnostic.jump { count = -1 }
   end, "Previous diagnostic")
   map("n", "<leader>lr", vim.lsp.buf.rename, "Rename symbol")
   map("n", "<leader>ls", vim.lsp.buf.signature_help, "Show signature help")

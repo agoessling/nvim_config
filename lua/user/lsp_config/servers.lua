@@ -22,7 +22,11 @@ function M.setup(capabilities, on_attach)
     end
 
     vim.lsp.config(server, opts)
-    vim.lsp.enable(server)
+
+    local cmd = vim.lsp.config[server].cmd
+    if type(cmd) == "function" or (type(cmd) == "table" and vim.fn.executable(cmd[1]) == 1) then
+      vim.lsp.enable(server)
+    end
   end
 end
 

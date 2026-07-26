@@ -1,5 +1,5 @@
 local M = {
-  "kyazdani42/nvim-tree.lua",
+  "nvim-tree/nvim-tree.lua",
   event = "VimEnter"
 }
 

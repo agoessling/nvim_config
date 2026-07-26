@@ -5,7 +5,7 @@ local M = {
 
 M.project_files = function()
 	local cwd = vim.fn.expand("%:p:h")
-	vim.fn.system("git -C " .. cwd .. " rev-parse --is-inside-work-tree")
+	vim.fn.system({ "git", "-C", cwd, "rev-parse", "--is-inside-work-tree" })
 	if vim.v.shell_error == 0 then
 		require("telescope.builtin").git_files({
 			cwd = cwd,

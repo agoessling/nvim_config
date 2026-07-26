@@ -13,7 +13,7 @@ local M = {
 function M.config()
   require("mason").setup()
   require("mason-lspconfig").setup {
-    ensure_installed = { "basedpyright", "ruff" },
+    ensure_installed = { "basedpyright", "clangd", "ruff", "rust_analyzer" },
     automatic_enable = false,
   }
 end

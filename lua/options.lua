@@ -11,6 +11,7 @@ vim.o.ruler = false
 vim.o.number = true
 vim.o.cursorline = true
 vim.o.colorcolumn = "+1"
+vim.o.winborder = "rounded"
 vim.g.loaded_python3_provider = 0
 
 -- Wildcard and search

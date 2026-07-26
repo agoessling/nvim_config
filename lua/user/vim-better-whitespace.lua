@@ -1,6 +1,6 @@
 local M = {
   "ntpeters/vim-better-whitespace",
-  event = "Bufenter",
+  event = "BufEnter",
 }
 
 return M
