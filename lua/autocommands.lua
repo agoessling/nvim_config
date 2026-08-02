@@ -39,3 +39,45 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     })
   end,
 })
+
+local cpp_format_on_save = vim.api.nvim_create_augroup("CppFormatOnSave", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = cpp_format_on_save,
+  pattern = {
+    "*.c",
+    "*.cc",
+    "*.cpp",
+    "*.cxx",
+    "*.h",
+    "*.hh",
+    "*.hpp",
+    "*.hxx",
+    "*.inc",
+  },
+  callback = function(args)
+    vim.lsp.buf.format({
+      bufnr = args.buf,
+      timeout_ms = 3000,
+      filter = function(client)
+        return client.name == "clangd"
+      end,
+    })
+  end,
+})
+
+local rust_format_on_save = vim.api.nvim_create_augroup("RustFormatOnSave", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = rust_format_on_save,
+  pattern = "*.rs",
+  callback = function(args)
+    vim.lsp.buf.format({
+      bufnr = args.buf,
+      timeout_ms = 3000,
+      filter = function(client)
+        return client.name == "rust_analyzer"
+      end,
+    })
+  end,
+})
