@@ -20,13 +20,14 @@ function M.config()
       formatting.prettier.with({
         extra_filetypes = { "toml" },
         extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+        disabled_filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
       }),
       formatting.stylua,
     },
   })
 
   require("mason-null-ls").setup({
-    ensure_installed = nil,
+    ensure_installed = { "prettier", "stylua" },
     automatic_installation = true,
   })
 end

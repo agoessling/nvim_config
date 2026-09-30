@@ -5,9 +5,16 @@ if not vim.uv.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
     lazypath,
   }
+  if vim.v.shell_error ~= 0 then
+    error("Failed to clone lazy.nvim")
+  end
+  local lock = vim.json.decode(table.concat(vim.fn.readfile(vim.fn.stdpath("config") .. "/lazy-lock.json"), "\n"))
+  vim.fn.system { "git", "-C", lazypath, "checkout", "--detach", lock["lazy.nvim"].commit }
+  if vim.v.shell_error ~= 0 then
+    error("Failed to restore lazy.nvim from lazy-lock.json")
+  end
 end
 vim.opt.rtp:prepend(lazypath)
 

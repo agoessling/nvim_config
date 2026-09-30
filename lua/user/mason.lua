@@ -13,7 +13,7 @@ local M = {
 function M.config()
   require("mason").setup()
   require("mason-lspconfig").setup {
-    ensure_installed = { "basedpyright", "clangd", "ruff", "rust_analyzer" },
+    ensure_installed = vim.env.DEFAULTS_NVIM_SETUP == "1" and {} or { "basedpyright", "biome", "clangd", "ruff", "rust_analyzer", "ts_ls" },
     automatic_enable = false,
   }
 end

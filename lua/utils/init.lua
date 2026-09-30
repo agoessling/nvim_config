@@ -6,6 +6,7 @@ M.servers = {
   "cssls",
   "html",
   "ts_ls",
+  "biome",
   "basedpyright",
   "ruff",
   "bashls",

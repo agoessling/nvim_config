@@ -9,6 +9,8 @@ local languages = {
 	"vim",
 	"json",
 	"rust",
+	"typescript",
+	"tsx",
 }
 
 local M = {

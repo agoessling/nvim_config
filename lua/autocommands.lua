@@ -40,6 +40,22 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+local typescript_format_on_save = vim.api.nvim_create_augroup("TypeScriptFormatOnSave", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = typescript_format_on_save,
+  pattern = { "*.ts", "*.tsx" },
+  callback = function(args)
+    vim.lsp.buf.format({
+      bufnr = args.buf,
+      timeout_ms = 3000,
+      filter = function(client)
+        return client.name == "biome"
+      end,
+    })
+  end,
+})
+
 local cpp_format_on_save = vim.api.nvim_create_augroup("CppFormatOnSave", { clear = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
