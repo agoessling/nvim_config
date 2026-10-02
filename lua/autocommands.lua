@@ -30,6 +30,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = python_format_on_save,
   pattern = "*.py",
   callback = function(args)
+    if require("project_metadata").format(args.buf) then
+      return
+    end
     vim.lsp.buf.format({
       bufnr = args.buf,
       timeout_ms = 3000,
@@ -46,6 +49,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = typescript_format_on_save,
   pattern = { "*.ts", "*.tsx" },
   callback = function(args)
+    if require("project_metadata").format(args.buf) then
+      return
+    end
     vim.lsp.buf.format({
       bufnr = args.buf,
       timeout_ms = 3000,
@@ -72,6 +78,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     "*.inc",
   },
   callback = function(args)
+    if require("project_metadata").format(args.buf) then
+      return
+    end
     vim.lsp.buf.format({
       bufnr = args.buf,
       timeout_ms = 3000,
@@ -88,6 +97,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = rust_format_on_save,
   pattern = "*.rs",
   callback = function(args)
+    if require("project_metadata").format(args.buf) then
+      return
+    end
     vim.lsp.buf.format({
       bufnr = args.buf,
       timeout_ms = 3000,
@@ -95,5 +107,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         return client.name == "rust_analyzer"
       end,
     })
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = vim.api.nvim_create_augroup("BazelFormatOnSave", { clear = true }),
+  pattern = { "*.bzl", "*.bazel", "BUILD", "WORKSPACE" },
+  callback = function(args)
+    require("project_metadata").format(args.buf)
   end,
 })

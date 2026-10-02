@@ -9,6 +9,13 @@ M.root_dir = function(bufnr, on_dir)
 	end
 end
 
+M.before_init = function(_, config)
+	local metadata = require("project_metadata").read(config.root_dir)
+	if metadata then
+		config.settings.basedpyright.analysis.extraPaths = metadata.python_search_paths
+	end
+end
+
 M.settings = {
 	basedpyright = {
 		analysis = {
